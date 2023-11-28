@@ -1,0 +1,65 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+
+
+    <title>Forgot Password</title>
+</head>
+
+<body>
+
+    <center>
+    <h1>CRUD OPERATION</h1>
+
+<br>
+<br>
+
+
+        <form action={% url "index" %} method="POST" novalidate>
+            {% csrf_token %}
+            
+             
+
+                {{ form.non_field_errors }}             
+                {% for forms in form  %}
+
+                {{forms.label_tag}}{{forms}}<br>{% if forms.errors %}
+                {{forms.errors}} 
+
+                {% else %}
+                <br>
+                {% endif %}
+
+                {% endfor %} 
+
+
+                {% if messages %}
+                  <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="errorlist"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+
+
+
+        <input type ="submit"/>
+        </form>
+{{x}}
+        </center>
+              <a href={% url "signin" %}><h4>Signin</h4></a>
+
+
+
+            </body>
+
+            </html>
+   

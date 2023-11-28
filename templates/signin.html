@@ -1,0 +1,44 @@
+
+<center><h1>Login</h1>
+
+    <form action={% url "signin" %} method="POST" novalidate>
+        {% csrf_token %}
+        
+        
+
+            {{ form.non_field_errors }}             
+{% for forms in form  %}
+
+{{forms.label_tag}}{{forms}}<br>{% if forms.errors %}
+{{forms.errors}} 
+
+{% else %}
+<br>
+{% endif %}
+
+{% endfor %} 
+{% if messages %}
+<ul class="messages">
+{% for message in messages %}
+  <li{% if message.tags %} class="errorlist"{% endif %}>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+
+    <input type ="submit"/>
+    </form>
+        
+      
+     
+      <a href={% url "index" %}><h4>Sign Up </h4></a>
+      
+
+        
+
+{% if user %}
+{{user}}
+
+{% endif %}
+
+</center>
